@@ -1,0 +1,26 @@
+<%= form_for(blogpost) do |f| %>
+  <% if blogpost.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(blogpost.errors.count, "error") %> prohibited this blogpost from being saved:</h2>
+
+      <ul>
+      <% blogpost.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :content %><br>
+    <%= f.cktext_area :content, :class => blogpost.id, :id => blogpost.id, :required => true %>
+</div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  <button><%= link_to 'Delete Post', blogpost, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+<% end %>

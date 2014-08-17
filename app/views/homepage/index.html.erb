@@ -1,0 +1,245 @@
+<!-- /apps/views/layouts/application.html.erb -->
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+ <title>Eva's blog</title>
+
+ <%= stylesheet_link_tag  "application", media: "all", "data-turbolinks-track" => true %>
+
+ <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+
+ <%= csrf_meta_tags %>
+
+</head>
+
+<body>
+
+<center><%= will_paginate @blogposts %></center>
+
+<div id="wrapper">
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+      <ul class="nav nav-pills nav-stacked ">
+        <li ><a href="/"><span class="glyphicon glyphicon-home"> Home</a></li>
+
+        <% if user_signed_in? %>
+        	<li><a href='#' data-toggle="modal" data-target="#newpostModal"> New Blogpost</a></li>
+        	<li><%= link_to "Sign out",destroy_user_session_path, method: :delete, class: "button" %></li>
+            <li><%= link_to "Edit User", edit_user_registration_path %></li>
+        <% else %>
+        	<li><a href='#' data-toggle="modal" data-target="#myModal2"><span class="glyphicon glyphicon-eye-open"> Admin</a></li>
+        <% end %>
+      </ul>
+    </div>
+
+    <!-- Page contents -->
+    <div id="page-content-wrapper">
+        <div class="page-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-11">
+                        
+                    <%n = 0 %>
+
+                    <% @blogposts.each do |blogpost| %>		
+                    <div class="well">
+                        <table class="table table-hover table-condensed">
+                        <col width="130">
+                    	<tr>
+                            <td colspan="2">
+                                <h4>
+                                    <%= blogpost.title %>
+                                </h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                    	        <%= blogpost.user.full_name %><br />
+                                <%= image_tag blogpost.user.avatar_url, size: "100x100" %>
+                            </td>
+                            <td >
+                                <%= blogpost.content.html_safe %><br />
+                                <font size = 1>
+                                <% if user_signed_in?%>
+                                    <% if current_user.id == blogpost.user.id %>
+                                        <a href='#' data-toggle="modal" data-target="#editModal<%= n %>"> Edit</a> |
+                                    <% else %>    
+                                    <% end %>
+                                <% end %>
+                                <a href='#' data-toggle="modal" data-target="#commentModal<%= n %>">Comment</a>  <a href='#' data-toggle="modal" data-target="#listcommentModal<%= n %>"><span class="badge"> <%= Comment.where(blogpost_id: blogpost.id).count %></span></a> | <%=blogpost.created_at%>
+                                </font>
+                            </td>
+                        </tr>
+                        <% if blogpost.image_url == nil %>
+                        <% else %>
+                            <tr>
+                                <td>
+                                </td>
+                                <td>Attached:  <a href='#' data-toggle="modal" data-target="#imageModal<%= n %>"><%= image_tag blogpost.image_url, size: "50x50" %></a>
+                                </td>
+                            </tr>
+                        <% end %>                    
+            
+                    </table>
+                </div>
+                    <!-- New Comment-->
+                        <div class="modal fade" id="commentModal<%= n %>" tabindex="2001" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                        <h4 class="modal-title" id="myModalLabel">New Comment</h4>
+                                    </div>
+                                <div class="modal-body">
+                                        <%= render 'newcomment', :blogpost => blogpost %>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- See Attached Comment-->
+                        <div class="modal fade" id="imageModal<%= n %>" tabindex="2001" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                        <h4 class="modal-title" id="myModalLabel">Attached files</h4>
+                                    </div>
+                                <div class="modal-body">
+                                    <%= image_tag blogpost.image_url %>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Edit Post-->
+                        <div class="modal fade" id="editModal<%= n %>" tabindex="2001" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                        <h4 class="modal-title" id="myModalLabel">Edit Post</h4>
+                                    </div>
+                                <div class="modal-body">
+                                        <%= render 'editform', :blogpost => blogpost %>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Comments-->
+                        <div class="modal fade" id="listcommentModal<%= n %>" tabindex="2001" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                        <h4 class="modal-title" id="myModalLabel">Listing Comments</h4>
+                                    </div>
+                                <div class="modal-body">
+
+                                <% @blogcomments = Comment.where(blogpost_id: blogpost.id) %>
+                                <% if @blogcomments.count == 0 %>
+                                    <b>There are no comments yet!</b>
+                                <% else %>
+                                <% end %>
+                                <% @blogcomments.each do |comment| %>
+                                <div class="well">
+                                    <b><%= comment.name %></b> <font size="1"> <%= comment.created_at%></font><br />
+                                    <%= comment.content %><br /><br />
+                                </div>
+                                <% end %>
+                                </div>
+
+                                
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <% n+=1 %>
+                    <% end %> <!--End loop for posts -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Mew Blogpost -->
+<div class="modal fade" id="newpostModal" tabindex="2001" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">New Blogpost</h4>
+            </div>
+        <div class="modal-body">
+                <%= render 'blogpostform' %>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+    	</div>
+	</div>
+</div>
+
+<!-- Admin login-->
+<div class="modal fade" id="myModal2" tabindex="2001" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Login</h4>
+            </div>
+        <div class="modal-body">
+                <%= render 'login' %>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+    	</div>
+	</div>
+</div>
+
+
+
+<center><%= will_paginate @blogposts %></center>
+
+</body>
+
+</html>
+
+
+<script type="text/javascript">
+    function loadComments(){
+        $.getJSON("/comments.json", function(data){
+            console.log(data);
+
+            var html ="";
+
+            $.each(data, function (index){
+
+                html += "<b>" + data[index].content +"</b><br><br>"
+                //alert(data[index].content);
+
+            });
+
+            $('#comments').html(html);
+        });
+    }
+
+
+    </script>

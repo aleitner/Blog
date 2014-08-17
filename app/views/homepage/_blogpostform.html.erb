@@ -1,0 +1,33 @@
+<%= form_for(@blogpost) do |f| %>
+  <% if @blogpost.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@blogpost.errors.count, "error") %> prohibited this blogpost from being saved:</h2>
+
+      <ul>
+      <% @blogpost.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <% if user_signed_in? %>
+    <div class="field">
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+    </div>
+    <% end %>
+  <div class="field">
+    <%= f.label "Title" %><br>
+    <%= f.text_field :title %>
+  </div> 
+  <div>
+  <%= f.file_field :image, autofocus: true  %>
+</div>
+  <div class="field">
+    <%= f.label :content %><br>
+    <%= f.cktext_area :content, :class => 'newblogpost', :id => 'newblogpost', :required => true %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
