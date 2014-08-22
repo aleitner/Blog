@@ -54,7 +54,13 @@ class BlogpostsController < ApplicationController
   # DELETE /blogposts/1
   # DELETE /blogposts/1.json
   def destroy
+    @comments = Comment.where(blogpost_id: @blogpost.id)
+    @comments.each do |comment|
+      comment.destroy
+    end
+    
     @blogpost.destroy
+
     respond_to do |format|
       format.html { redirect_to root_path, notice: 'Blogpost was successfully destroyed.' }
       format.json { head :no_content }

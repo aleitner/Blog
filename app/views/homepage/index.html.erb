@@ -155,6 +155,11 @@
                                 <% end %>
                                 <% @blogcomments.each do |comment| %>
                                 <div class="well">
+                                    <% if comment.user_id != 0 %>
+                                        <%= image_tag comment.user.avatar_url, size: "30x30" %>
+                                    <% else %>
+                                        <%= image_tag 'default.png', size: "30x30" %>
+                                    <% end %>
                                     <b><%= comment.name %></b> <font size="1"> <%= comment.created_at%></font><br />
                                     <%= comment.content %><br /><br />
                                 </div>
@@ -222,24 +227,3 @@
 
 </html>
 
-
-<script type="text/javascript">
-    function loadComments(){
-        $.getJSON("/comments.json", function(data){
-            console.log(data);
-
-            var html ="";
-
-            $.each(data, function (index){
-
-                html += "<b>" + data[index].content +"</b><br><br>"
-                //alert(data[index].content);
-
-            });
-
-            $('#comments').html(html);
-        });
-    }
-
-
-    </script>
