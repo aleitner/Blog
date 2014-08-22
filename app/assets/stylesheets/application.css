@@ -1,0 +1,46 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+#wrapper {
+  padding-left: 250px;
+  transition: all 0.4s ease 0s;
+}
+
+#sidebar-wrapper {
+  left: 80px; /*Sidebar distance from left */
+  width: 120px; /*Sidebar width*/
+  background: #FFFFFF; /*Sidebar background color */
+  position: fixed; /*Sidebar doesn't move */
+  height: auto; /*Sidebar is as tall as there are buttons */
+  z-index: 1000; /*Sidebar is in the 1000th position above everything */
+  transition: all 0.4s ease 0s;
+}
+
+#page-content-wrapper {
+  width: 80%; /*when page is smaller the width of the contents */
+}
+
+.sidebar-nav {
+  position: absolute;
+  top: 0;
+  width: 160px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.alert {
+   width: 40%;    
+}
