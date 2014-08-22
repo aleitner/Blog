@@ -67740,3 +67740,421 @@ Started GET "/assets/homepage.js?body=1" for 127.0.0.1 at 2014-08-21 23:23:12 -0
 
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-21 23:23:12 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-22 00:00:10 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomepageController#index as HTML
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "blogposts"
+  [1m[36mUser Load (2.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mBlogpost Load (2.0ms)[0m  SELECT  "blogposts".* FROM "blogposts"   ORDER BY created_at DESC LIMIT 3 OFFSET 0
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "comments"  WHERE "comments"."blogpost_id" = 4
+  Rendered homepage/_newcomment.html.erb (80.0ms)
+  Rendered homepage/_editform.html.erb (14.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "comments"  WHERE "comments"."blogpost_id" = 4[0m
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."blogpost_id" = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "comments"  WHERE "comments"."blogpost_id" = 3
+  Rendered homepage/_newcomment.html.erb (2.0ms)
+  Rendered homepage/_editform.html.erb (2.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "comments"  WHERE "comments"."blogpost_id" = 3[0m
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."blogpost_id" = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "comments"  WHERE "comments"."blogpost_id" = 2
+  Rendered homepage/_newcomment.html.erb (2.0ms)
+  Rendered homepage/_editform.html.erb (3.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "comments"  WHERE "comments"."blogpost_id" = 2[0m
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."blogpost_id" = 2
+  Rendered homepage/_blogpostform.html.erb (10.0ms)
+  Rendered homepage/_login.html.erb (15.0ms)
+  Rendered homepage/index.html.erb within layouts/application (702.0ms)
+Completed 200 OK in 847ms (Views: 763.0ms | ActiveRecord: 18.0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-08-22 00:00:11 -0400
+
+
+Started GET "/assets/blogposts.css?body=1" for 127.0.0.1 at 2014-08-22 00:00:11 -0400
+
+
+Started GET "/assets/homepage.css?body=1" for 127.0.0.1 at 2014-08-22 00:00:11 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-22 00:00:11 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-22 00:00:11 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-22 00:00:11 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-22 00:00:11 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-22 00:00:11 -0400
+
+
+Started GET "/assets/ckeditor/init.js?body=1" for 127.0.0.1 at 2014-08-22 00:00:11 -0400
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2014-08-22 00:00:11 -0400
+
+
+Started GET "/assets/blogposts.js?body=1" for 127.0.0.1 at 2014-08-22 00:00:11 -0400
+
+
+Started GET "/assets/ckeditor/config.js?body=1" for 127.0.0.1 at 2014-08-22 00:00:11 -0400
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-08-22 00:00:11 -0400
+
+
+Started GET "/assets/homepage.js?body=1" for 127.0.0.1 at 2014-08-22 00:00:11 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-22 00:00:11 -0400
+
+
+Started GET "/js/bootstrap.min.js" for 127.0.0.1 at 2014-08-22 00:00:11 -0400
+
+ActionController::RoutingError (No route matches [GET] "/js/bootstrap.min.js"):
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  C:/RailsInstaller/Ruby1.9.3/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby1.9.3/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby1.9.3/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (39.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (154.0ms)
+
+
+Started GET "/assets/header.png" for 127.0.0.1 at 2014-08-22 00:00:12 -0400
+
+
+Started GET "/assets/ckeditor/config.js?t=E5OD" for 127.0.0.1 at 2014-08-22 00:00:12 -0400
+
+
+Started GET "/assets/ckeditor/skins/moono/editor.css?t=E5OD" for 127.0.0.1 at 2014-08-22 00:00:12 -0400
+
+
+Started GET "/assets/ckeditor/lang/en.js?t=E5OD" for 127.0.0.1 at 2014-08-22 00:00:12 -0400
+
+
+Started GET "/assets/ckeditor/styles.js?t=E5OD" for 127.0.0.1 at 2014-08-22 00:00:12 -0400
+
+
+Started GET "/assets/ckeditor/contents.css?t=E5OD" for 127.0.0.1 at 2014-08-22 00:00:12 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-22 00:00:48 -0400
+Processing by HomepageController#index as HTML
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "blogposts"[0m
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mBlogpost Load (0.0ms)[0m  [1mSELECT  "blogposts".* FROM "blogposts"   ORDER BY created_at DESC LIMIT 3 OFFSET 0[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "comments"  WHERE "comments"."blogpost_id" = 4[0m
+  Rendered homepage/_newcomment.html.erb (33.0ms)
+  Rendered homepage/_editform.html.erb (3.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "comments"  WHERE "comments"."blogpost_id" = 4
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."blogpost_id" = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "comments"  WHERE "comments"."blogpost_id" = 3[0m
+  Rendered homepage/_newcomment.html.erb (2.0ms)
+  Rendered homepage/_editform.html.erb (4.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "comments"  WHERE "comments"."blogpost_id" = 3
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."blogpost_id" = 3[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "comments"  WHERE "comments"."blogpost_id" = 2[0m
+  Rendered homepage/_newcomment.html.erb (2.0ms)
+  Rendered homepage/_editform.html.erb (3.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "comments"  WHERE "comments"."blogpost_id" = 2
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."blogpost_id" = 2[0m
+  Rendered homepage/_blogpostform.html.erb (3.0ms)
+  Rendered homepage/_login.html.erb (1.0ms)
+  Rendered homepage/index.html.erb within layouts/application (137.0ms)
+Completed 200 OK in 156ms (Views: 148.0ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-08-22 00:00:48 -0400
+
+
+Started GET "/assets/blogposts.css?body=1" for 127.0.0.1 at 2014-08-22 00:00:48 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-22 00:00:48 -0400
+
+
+Started GET "/assets/homepage.css?body=1" for 127.0.0.1 at 2014-08-22 00:00:48 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-22 00:00:48 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-22 00:00:48 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-22 00:00:48 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-22 00:00:48 -0400
+
+
+Started GET "/assets/ckeditor/init.js?body=1" for 127.0.0.1 at 2014-08-22 00:00:48 -0400
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2014-08-22 00:00:48 -0400
+
+
+Started GET "/assets/blogposts.js?body=1" for 127.0.0.1 at 2014-08-22 00:00:48 -0400
+
+
+Started GET "/assets/ckeditor/config.js?body=1" for 127.0.0.1 at 2014-08-22 00:00:48 -0400
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-08-22 00:00:48 -0400
+
+
+Started GET "/assets/homepage.js?body=1" for 127.0.0.1 at 2014-08-22 00:00:48 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-22 00:00:48 -0400
+
+
+Started GET "/js/bootstrap.min.js" for 127.0.0.1 at 2014-08-22 00:00:48 -0400
+
+ActionController::RoutingError (No route matches [GET] "/js/bootstrap.min.js"):
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  C:/RailsInstaller/Ruby1.9.3/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby1.9.3/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby1.9.3/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (113.0ms)
+
+
+Started GET "/assets/header.png" for 127.0.0.1 at 2014-08-22 00:00:49 -0400
+
+
+Started GET "/assets/ckeditor/config.js?t=E5OD" for 127.0.0.1 at 2014-08-22 00:00:49 -0400
+
+
+Started GET "/assets/ckeditor/skins/moono/editor.css?t=E5OD" for 127.0.0.1 at 2014-08-22 00:00:49 -0400
+
+
+Started GET "/assets/ckeditor/lang/en.js?t=E5OD" for 127.0.0.1 at 2014-08-22 00:00:49 -0400
+
+
+Started GET "/assets/ckeditor/styles.js?t=E5OD" for 127.0.0.1 at 2014-08-22 00:00:49 -0400
+
+
+Started GET "/assets/ckeditor/contents.css?t=E5OD" for 127.0.0.1 at 2014-08-22 00:00:49 -0400
+
+
+Started GET "/assets/ckeditor/skins/moono/icons.png" for 127.0.0.1 at 2014-08-22 00:00:50 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-22 00:06:51 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomepageController#index as HTML
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "blogposts"
+  [1m[36mUser Load (2.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mBlogpost Load (1.0ms)[0m  SELECT  "blogposts".* FROM "blogposts"   ORDER BY created_at DESC LIMIT 3 OFFSET 0
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "comments"  WHERE "comments"."blogpost_id" = 4
+  Rendered homepage/_newcomment.html.erb (77.0ms)
+  Rendered homepage/_editform.html.erb (9.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "comments"  WHERE "comments"."blogpost_id" = 4[0m
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."blogpost_id" = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "comments"  WHERE "comments"."blogpost_id" = 3
+  Rendered homepage/_newcomment.html.erb (2.0ms)
+  Rendered homepage/_editform.html.erb (3.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "comments"  WHERE "comments"."blogpost_id" = 3[0m
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."blogpost_id" = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "comments"  WHERE "comments"."blogpost_id" = 2
+  Rendered homepage/_newcomment.html.erb (2.0ms)
+  Rendered homepage/_editform.html.erb (2.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "comments"  WHERE "comments"."blogpost_id" = 2[0m
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."blogpost_id" = 2
+  Rendered homepage/_blogpostform.html.erb (9.0ms)
+  Rendered homepage/_login.html.erb (17.0ms)
+  Rendered homepage/index.html.erb within layouts/application (617.0ms)
+Completed 200 OK in 789ms (Views: 685.0ms | ActiveRecord: 18.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-22 00:06:52 -0400
+Processing by HomepageController#index as HTML
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "blogposts"[0m
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mBlogpost Load (1.0ms)[0m  [1mSELECT  "blogposts".* FROM "blogposts"   ORDER BY created_at DESC LIMIT 3 OFFSET 0[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "comments"  WHERE "comments"."blogpost_id" = 4[0m
+  Rendered homepage/_newcomment.html.erb (2.0ms)
+  Rendered homepage/_editform.html.erb (2.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "comments"  WHERE "comments"."blogpost_id" = 4
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."blogpost_id" = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "comments"  WHERE "comments"."blogpost_id" = 3[0m
+  Rendered homepage/_newcomment.html.erb (2.0ms)
+  Rendered homepage/_editform.html.erb (2.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "comments"  WHERE "comments"."blogpost_id" = 3
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."blogpost_id" = 3[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "comments"  WHERE "comments"."blogpost_id" = 2[0m
+  Rendered homepage/_newcomment.html.erb (2.0ms)
+  Rendered homepage/_editform.html.erb (2.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "comments"  WHERE "comments"."blogpost_id" = 2
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."blogpost_id" = 2[0m
+  Rendered homepage/_blogpostform.html.erb (2.0ms)
+  Rendered homepage/_login.html.erb (2.0ms)
+  Rendered homepage/index.html.erb within layouts/application (62.0ms)
+Completed 200 OK in 78ms (Views: 72.0ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/assets/blogposts.css?body=1" for 127.0.0.1 at 2014-08-22 00:06:52 -0400
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-08-22 00:06:52 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-22 00:06:52 -0400
+
+
+Started GET "/assets/homepage.css?body=1" for 127.0.0.1 at 2014-08-22 00:06:53 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-22 00:06:53 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-22 00:06:53 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-22 00:06:53 -0400
+
+
+Started GET "/assets/ckeditor/config.js?body=1" for 127.0.0.1 at 2014-08-22 00:06:53 -0400
+
+
+Started GET "/assets/ckeditor/init.js?body=1" for 127.0.0.1 at 2014-08-22 00:06:53 -0400
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2014-08-22 00:06:53 -0400
+
+
+Started GET "/assets/blogposts.js?body=1" for 127.0.0.1 at 2014-08-22 00:06:53 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-22 00:06:53 -0400
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-08-22 00:06:53 -0400
+
+
+Started GET "/assets/homepage.js?body=1" for 127.0.0.1 at 2014-08-22 00:06:53 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-22 00:06:53 -0400
+
+
+Started GET "/js/bootstrap.min.js" for 127.0.0.1 at 2014-08-22 00:06:53 -0400
+
+ActionController::RoutingError (No route matches [GET] "/js/bootstrap.min.js"):
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  C:/RailsInstaller/Ruby1.9.3/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby1.9.3/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby1.9.3/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (8.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (116.0ms)
+
+
+Started GET "/assets/header.png" for 127.0.0.1 at 2014-08-22 00:06:53 -0400
+
+
+Started GET "/assets/ckeditor/config.js?t=E5OD" for 127.0.0.1 at 2014-08-22 00:06:53 -0400
+
+
+Started GET "/assets/ckeditor/lang/en.js?t=E5OD" for 127.0.0.1 at 2014-08-22 00:06:54 -0400
+
+
+Started GET "/assets/ckeditor/skins/moono/editor.css?t=E5OD" for 127.0.0.1 at 2014-08-22 00:06:54 -0400
+
+
+Started GET "/assets/ckeditor/styles.js?t=E5OD" for 127.0.0.1 at 2014-08-22 00:06:54 -0400
+
+
+Started GET "/assets/ckeditor/contents.css?t=E5OD" for 127.0.0.1 at 2014-08-22 00:06:54 -0400
+
+
+Started GET "/assets/ckeditor/skins/moono/icons.png" for 127.0.0.1 at 2014-08-22 00:06:56 -0400
