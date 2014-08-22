@@ -38,12 +38,19 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
 
+#User authentication system
 gem 'devise'
 
+#File upload gem
 gem 'carrierwave'
 gem 'mini_magick'
-gem 'ckeditor'
 
+#Wysiwig editor
+gem 'ckeditor'
+#Fix wysiwig editor in production
+gem 'non-stupid-digest-assets'
+
+#Pagination
 gem 'will_paginate', '~> 3.0.5'
 
 gem 'rails_12factor', group: :production
