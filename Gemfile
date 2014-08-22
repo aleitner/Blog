@@ -47,8 +47,6 @@ gem 'mini_magick'
 
 #Wysiwig editor
 gem 'ckeditor'
-#Fix wysiwig editor in production
-gem 'non-stupid-digest-assets'
 
 #Pagination
 gem 'will_paginate', '~> 3.0.5'
