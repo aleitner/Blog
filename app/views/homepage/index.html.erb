@@ -142,24 +142,27 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Edit Post-->
-                        <div class="modal fade" id="editModal<%= n %>" tabindex="2001" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                                        <h4 class="modal-title" id="myModalLabel">Edit Post</h4>
+                        <% if user_signed_in? %>
+                            <!-- Edit Post-->
+                            <div class="modal fade" id="editModal<%= n %>" tabindex="2001" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                            <h4 class="modal-title" id="myModalLabel">Edit Post</h4>
+                                        </div>
+                                    <div class="modal-body">
+                                            <%= render 'editform', :blogpost => blogpost %>
                                     </div>
-                                <div class="modal-body">
-                                        <%= render 'editform', :blogpost => blogpost %>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-
+                        <%else%>
+                        <%end%>
+                        
                         <!-- Comments-->
                         <div class="modal fade" id="listcommentModal<%= n %>" tabindex="2001" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
@@ -205,24 +208,6 @@
     </div>
 </div>
 
-<!-- Mew Blogpost -->
-<div class="modal fade" id="newpostModal" tabindex="2001" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="myModalLabel">New Blogpost</h4>
-            </div>
-        <div class="modal-body">
-                <%= render 'blogpostform' %>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-    	</div>
-	</div>
-</div>
-
 <!-- Admin login-->
 <div class="modal fade" id="myModal2" tabindex="2001" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -241,24 +226,45 @@
 	</div>
 </div>
 
-<!-- Edit User-->
-<div class="modal fade" id="edituserModal" tabindex="2001" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="myModalLabel">Edit User</h4>
+
+<% if user_signed_in? %>
+<!-- Mew Blogpost -->
+    <div class="modal fade" id="newpostModal" tabindex="2001" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">New Blogpost</h4>
+                </div>
+            <div class="modal-body">
+                    <%= render 'blogpostform' %>
             </div>
-        <div class="modal-body">
-                <%= render 'edituser' %>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+            </div>
         </div>
     </div>
-</div>
 
+<!-- Edit User-->    
+    <div class="modal fade" id="edituserModal" tabindex="2001" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Edit User</h4>
+                </div>
+            <div class="modal-body">
+                    <%= render 'edituser' %>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+            </div>
+        </div>
+    </div>
+<%else%>
+<%end%>
 
 
 <center><%= will_paginate @blogposts %></center>
