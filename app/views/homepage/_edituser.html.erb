@@ -2,18 +2,18 @@
   <%= devise_error_messages! %>
 
   <div><%= f.label :email %>
-  <%= f.email_field :email, autofocus: true %></div>
+  <%= f.email_field :email, autofocus: true, :required => true %></div>
 
   
 
   <div><%= f.label :handle %>
-  <%= f.text_field :handle, autofocus: true %></div>
+  <%= f.text_field :handle, autofocus: true, :required => true %></div>
 
   <div><%= f.label :firstname %>
-  <%= f.text_field :firstname, autofocus: true %></div>
+  <%= f.text_field :firstname, autofocus: true, :required => true %></div>
 
   <div><%= f.label :lastname %>
-  <%= f.text_field :lastname, autofocus: true %></div>
+  <%= f.text_field :lastname, autofocus: true, :required => true %></div>
 
   <div>
   <%= f.file_field :avatar, autofocus: true  %></div>
@@ -29,7 +29,7 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %></div><br />
 
   <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %></div><br />
+    <%= f.password_field :current_password, autocomplete: "off", :required => true %></div><br />
 
   <div><%= f.submit "Update" %></div>
 <% end %>
