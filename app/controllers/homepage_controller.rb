@@ -4,7 +4,6 @@ class HomepageController < ApplicationController
     @comments = Comment.all
     @comment = Comment.new
     @blogpost = Blogpost.new
-    
   end
 
   def main

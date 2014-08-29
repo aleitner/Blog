@@ -44,6 +44,7 @@ gem 'devise'
 #File upload gem
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'cloudinary'
 
 #Wysiwig editor
 gem 'ckeditor'

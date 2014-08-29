@@ -51,7 +51,7 @@
         <% if user_signed_in? %>
         	<li><a href='#' data-toggle="modal" data-target="#newpostModal"> New Blogpost</a></li>
         	<li><%= link_to "Sign out",destroy_user_session_path, method: :delete, class: "button" %></li>
-            <li><%= link_to "Edit User", edit_user_registration_path %></li>
+            <li><a href='#' data-toggle="modal" data-target="#edituserModal">Edit User</a></li>
         <% else %>
         	<li><a href='#' data-toggle="modal" data-target="#myModal2"><span class="glyphicon glyphicon-eye-open"> Admin</a></li>
         <% end %>
@@ -239,6 +239,24 @@
         </div>
     	</div>
 	</div>
+</div>
+
+<!-- Edit User-->
+<div class="modal fade" id="edituserModal" tabindex="2001" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Edit User</h4>
+            </div>
+        <div class="modal-body">
+                <%= render 'edituser' %>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+        </div>
+    </div>
 </div>
 
 
