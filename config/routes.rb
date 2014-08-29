@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
-  root 'homepage#index'
+  root 'homepage#main'
 
-  get 'homepage/m'
+  get 'homepage/index'
+
+  get 'homepage/works'
 
   devise_for :users
   resources :comments

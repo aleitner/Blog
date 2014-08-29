@@ -28,7 +28,7 @@ class BlogpostsController < ApplicationController
 
     respond_to do |format|
       if @blogpost.save
-        format.html { redirect_to root_path, notice: 'Blogpost was successfully created.' }
+        format.html { redirect_to homepage_index_path, notice: 'Blogpost was successfully created.' }
         format.json { render :show, status: :created, location: @blogpost }
       else
         format.html { render :new }
@@ -62,7 +62,7 @@ class BlogpostsController < ApplicationController
     @blogpost.destroy
 
     respond_to do |format|
-      format.html { redirect_to root_path, notice: 'Blogpost was successfully destroyed.' }
+      format.html { redirect_to homepage_index_path, notice: 'Blogpost was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

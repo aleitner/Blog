@@ -7,7 +7,10 @@ class HomepageController < ApplicationController
     
   end
 
-  def m
+  def main
   end
   
+  def works
+  end
+
 end

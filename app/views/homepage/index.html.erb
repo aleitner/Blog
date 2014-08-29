@@ -20,14 +20,21 @@
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="js/bootstrap.min.js"></script>
 
- <title>Eva's blog</title>
-
  <%= stylesheet_link_tag  "application", media: "all", "data-turbolinks-track" => true %>
 
  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 
  <%= csrf_meta_tags %>
-
+<div id="header-fixed">
+    <div id="my-menus">
+        <center>
+        <h1> 
+        <%= image_tag("lightbulb.gif") %> Steve Leitner <br />
+        <h4>Mobile Developer</h4>
+        </h1>
+        </center>
+    </div>
+</div>
 </head>
 
 <body>
@@ -38,7 +45,8 @@
     <!-- Sidebar -->
     <div id="sidebar-wrapper">
       <ul class="nav nav-pills nav-stacked ">
-        <li ><a href="/"><span class="glyphicon glyphicon-home"> Home</a></li>
+        <li ><a href="/homepage/index"><span class="glyphicon glyphicon-home"> Home</a></li>
+        <li ><a href="/homepage/works"><span class="glyphicon glyphicon-phone"> Works</a></li>
 
         <% if user_signed_in? %>
         	<li><a href='#' data-toggle="modal" data-target="#newpostModal"> New Blogpost</a></li>
