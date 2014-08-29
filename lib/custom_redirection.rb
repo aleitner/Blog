@@ -1,7 +1,7 @@
 class CustomRedirection < Devise::FailureApp
 
   def redirect_url
-    root_path
+    homepage_index_path
   end
 
   def respond
