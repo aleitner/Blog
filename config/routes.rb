@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
+  get 'user_root' => redirect("/homepage/index")
+
   root 'homepage#main'
 
   get 'homepage/index'
 
   get 'homepage/works'
+
+  
 
   devise_for :users
   resources :comments

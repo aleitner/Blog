@@ -42,6 +42,6 @@ class ApplicationController < ActionController::Base
   end
 
   def after_update_path_for(resource)
-    homepage_index_path
+     stored_location_for(resource) || request.referer || homepage_index_path
   end
 end
