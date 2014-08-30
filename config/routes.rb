@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
   get 'user_root' => redirect("/homepage/index")
+  get 'users/sign_up' => redirect('/404.html')
 
   root 'homepage#main'
 
