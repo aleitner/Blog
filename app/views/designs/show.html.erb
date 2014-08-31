@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @design.title %>
+</p>
+
+<p>
+  <strong>Subtitle:</strong>
+  <%= @design.subtitle %>
+</p>
+
+<p>
+  <strong>Background color:</strong>
+  <%= @design.background_color %>
+</p>
+
+<%= link_to 'Edit', edit_design_path(@design) %> |
+<%= link_to 'Back', designs_path %>

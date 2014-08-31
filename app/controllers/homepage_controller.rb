@@ -4,6 +4,8 @@ class HomepageController < ApplicationController
     @comments = Comment.all
     @comment = Comment.new
     @blogpost = Blogpost.new
+    @designs = Design.all
+    @new_design = Design.new
   end
 
   def main
