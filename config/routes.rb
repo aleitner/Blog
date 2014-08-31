@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :works
+
   resources :designs
 
   mount Ckeditor::Engine => '/ckeditor'

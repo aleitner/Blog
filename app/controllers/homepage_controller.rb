@@ -6,6 +6,8 @@ class HomepageController < ApplicationController
     @blogpost = Blogpost.new
     @designs = Design.all
     @new_design = Design.new
+    @new_work = Work.new
+    @works = Work.all
   end
 
   def main
