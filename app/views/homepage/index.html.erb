@@ -25,19 +25,22 @@
  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 
  <%= csrf_meta_tags %>
+
+<% design_count = @designs.count %>
+
 <div id="header-fixed">
     <div id="my-menus">
         <center>
         <h1> 
         <%= image_tag("lightbulb.gif") %> 
-        <% if @designs.count == 0 %>
+        <% if design_count == 0 %>
             Title
         <% else %>
             <%= @designs.find(1).title %>
         <% end %>
         <br />
         <h4>
-        <% if @designs.count == 0 %>
+        <% if design_count == 0 %>
             Subtitle
         <% else %>
             <%= @designs.find(1).subtitle %>
@@ -47,8 +50,11 @@
     </div>
 </div>
 </head>
-
-<body id="background">
+<% if design_count == 0 %>
+    <body>
+<% else %>
+    <body style="background-color:<%= @designs.find(1).background_color %>">
+<% end %>
 
 <center><%= will_paginate @blogposts %></center>
 
