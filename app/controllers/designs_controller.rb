@@ -69,6 +69,6 @@ class DesignsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def design_params
-      params.require(:design).permit(:title, :subtitle, :background_color)
+      params.require(:design).permit(:title, :subtitle, :background_color, :wellcolor)
     end
 end

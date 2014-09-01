@@ -10,7 +10,6 @@
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 
 <!-- Optional theme -->
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
@@ -89,8 +88,13 @@
                     <%n = 0 %>
 
                     <% @blogposts.each do |blogpost| %>		
-                    <div class="well">
-                        <table class="table table-hover table-condensed">
+                    <% if design_count == 0 %>
+                        <div class="well">
+                    <% else %>
+                        <div class="well" style="background-color:<%= @designs.find(1).wellcolor %>;">
+                    <% end %>
+                    
+                        <table class="table table-condensed">
                         <col width="130">
                     	<tr>
                             <td colspan="2">

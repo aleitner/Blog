@@ -18,6 +18,10 @@ body {
   margin-top: 120px;
 }
 
+.table>tbody>tr>th, .table>tbody>tr>td {
+    border-top: none;
+}
+
 .blackbg {
   background: #000000;
 }
@@ -30,7 +34,6 @@ body {
 #sidebar-wrapper {
   left: 80px; /*Sidebar distance from left */
   width: 120px; /*Sidebar width*/
-  background: #FFFFFF; /*Sidebar background color */
   position: fixed; /*Sidebar doesn't move */
   height: auto; /*Sidebar is as tall as there are buttons */
   z-index: 1000; /*Sidebar is in the 1000th position above everything */
@@ -42,7 +45,7 @@ body {
 }
 
 .sidebar-nav {
-  position: absolute;
+  position: relative;
   top: 0;
   width: 160px;
   list-style: none;
