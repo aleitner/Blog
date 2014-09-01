@@ -36,7 +36,7 @@ body {
   width: 120px; /*Sidebar width*/
   position: fixed; /*Sidebar doesn't move */
   height: auto; /*Sidebar is as tall as there are buttons */
-  z-index: 1000; /*Sidebar is in the 1000th position above everything */
+  z-index: 2; /*Sidebar is in the 2nd position above everything */
   transition: all 0.4s ease 0s;
 }
 
@@ -62,7 +62,7 @@ body {
   position:fixed; 
   top: 0px; 
   margin:auto; 
-  z-index:1001; 
+  z-index:2; 
   width:100%;
 } 
 #my-menus {
